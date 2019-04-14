@@ -4,9 +4,10 @@
 
 #include <assert.h>
 #include <functional>
-#include <globals.h>
 #include <iterator>
 #include <vector>
+
+#include "globals.h"
 
 //symmtry operations that returns a vector with two entries holding the changed coordinates
 template <typename T>
