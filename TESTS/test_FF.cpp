@@ -12,7 +12,7 @@ namespace {
 TEST(FFTest, orthogonality)
 {
 
-    std::string file_name = "../data/inidata/pick_list_10.init";
+    std::string file_name = "picklist_10.init";
     //new FF object for checking
     FF ff_check(file_name);
 

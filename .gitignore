@@ -1,3 +1,9 @@
+#Cmake
+CMakeFiles/
+CMakeLists.txt.user
+CMakeLists.txt.user*
+cmake_install.cmake
+
 #batch script for usage on supercomputer
 batch_script*
 

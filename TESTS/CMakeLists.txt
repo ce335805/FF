@@ -4,8 +4,8 @@ set (CMAKE_CXX_EXTENSIONS OFF)
 set (CMAKE_CXX_STANDARD 17)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
 #using icc compiler
-set (CMAKE_CXX_COMPILER "mpiicpc")
-set (CMAKE_C_COMPILER "mpiicc")
+set (CMAKE_CXX_COMPILER "icpc")
+set (CMAKE_C_COMPILER "icc")
 
 
 #set as inlcude dir the current directory
@@ -14,13 +14,9 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(project_sources
 		run_all_tests.cpp
-		greentest.cpp
 		test_FF.cpp
-                test_Index.cpp
-                test_IndexIBZ.cpp
-                ../GreenFunction.cpp
-                ../Index.cpp
-                ../FF.cpp
+		../util.cpp
+		../FF.cpp
         )
 
 #include gtest
@@ -32,11 +28,11 @@ include_directories("/opt/intel/mkl/include")
 
 
 #add compiler flags inlcuding cblas
-set(C_flags "-O3 -Wall -mkl -Wextra -pedantic")
+set(C_flags "-Ofast -Wall -mkl -Wextra -pedantic")
 set(CMAKE_CXX_FLAGS	"${CMAKE_CXX_FLAGS} ${C_flags}")
 
 #set project name
-project (test_victory)
+project (test_FF)
 #add an executable - using variables
 add_executable(${PROJECT_NAME} ${project_sources})
 
@@ -45,5 +41,5 @@ target_link_libraries(${PROJECT_NAME} "/home/chris/gtest/build/lib/libgtest.a")
 target_link_libraries(${PROJECT_NAME} "/home/chris/gtest/build/lib/libgtest_main.a")
 #link to pthreads
 target_link_libraries(${PROJECT_NAME} "pthread")
-#place where libfabric is installed - needed for IntelMPI-2019
-target_link_libraries(${PROJECT_NAME} "/usr/local/lib/libfabric.so.1")
+#link to formfactors library
+#target_link_libraries(${PROJECT_NAME} "/home/chris/uni/FF/libFF.a")

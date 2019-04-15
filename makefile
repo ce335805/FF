@@ -1,13 +1,10 @@
 #makefile to build formfactors library
 CC = icpc
-CPPFLAGS = -Ofast
+CPPFLAGS = -Ofast -Wall -Wextra -pedantic
 
 OUTFILE = libFF.a
 #.PHONY all
 all: $(OUTFILE)
-
-checking.o: checking.h FF.h util.h globals.h
-	$(CC) $(CPPFLAGS) -c $< -o $@  
 
 FF.o: FF.h util.h globals.h
 	$(CC) $(CPPFLAGS) -c $< -o $@  
@@ -15,7 +12,7 @@ FF.o: FF.h util.h globals.h
 util.o: util.h globals.h
 	$(CC) $(CPPFLAGS) -c $< -o $@  
 
-$(OUTFILE): checking.o FF.o util.o 
+$(OUTFILE): FF.o util.o 
 	ar ru $@ $^
 	ranlib $@
 

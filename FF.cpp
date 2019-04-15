@@ -40,8 +40,17 @@ void FF::read_picklist(std::string file_name)
     Nl = 0ul;
 
     std::ifstream pick_in(file_name);
-    std::cout << '\n'
-              << "reading file : " << file_name << '\n';
+		if(pick_in.is_open())
+		{
+	    std::cout << '\n'
+	              << "reading file : " << file_name << '\n';
+		}
+		else
+		{
+	    std::cout << '\n'
+	              << "file " << file_name << " not properly opened" << '\n';
+		}	
+
 
     //temporary to read in
     bool temp { 1 };
@@ -51,14 +60,14 @@ void FF::read_picklist(std::string file_name)
         //std::cout << temp << '\n';
         pick_list.push_back(temp);
         if (pick_list.back())
-            ++Nl; //count true elements
+        	++Nl; //count true elements
         ++l;
     }
     //std::cout << '\n';
 
+    assert(l == N);
     assert(Nl > 0);
     assert(Nl <= N);
-    assert(l == N);
 
     std::cout << "FF object has " << Nl << " Formfactors" << '\n';
 
