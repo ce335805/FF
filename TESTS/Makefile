@@ -123,60 +123,6 @@ test_FF/fast:
 	$(MAKE) -f CMakeFiles/test_FF.dir/build.make CMakeFiles/test_FF.dir/build
 .PHONY : test_FF/fast
 
-home/chris/uni/FF/FF.o: home/chris/uni/FF/FF.cpp.o
-
-.PHONY : home/chris/uni/FF/FF.o
-
-# target to build an object file
-home/chris/uni/FF/FF.cpp.o:
-	$(MAKE) -f CMakeFiles/test_FF.dir/build.make CMakeFiles/test_FF.dir/home/chris/uni/FF/FF.cpp.o
-.PHONY : home/chris/uni/FF/FF.cpp.o
-
-home/chris/uni/FF/FF.i: home/chris/uni/FF/FF.cpp.i
-
-.PHONY : home/chris/uni/FF/FF.i
-
-# target to preprocess a source file
-home/chris/uni/FF/FF.cpp.i:
-	$(MAKE) -f CMakeFiles/test_FF.dir/build.make CMakeFiles/test_FF.dir/home/chris/uni/FF/FF.cpp.i
-.PHONY : home/chris/uni/FF/FF.cpp.i
-
-home/chris/uni/FF/FF.s: home/chris/uni/FF/FF.cpp.s
-
-.PHONY : home/chris/uni/FF/FF.s
-
-# target to generate assembly for a file
-home/chris/uni/FF/FF.cpp.s:
-	$(MAKE) -f CMakeFiles/test_FF.dir/build.make CMakeFiles/test_FF.dir/home/chris/uni/FF/FF.cpp.s
-.PHONY : home/chris/uni/FF/FF.cpp.s
-
-home/chris/uni/FF/util.o: home/chris/uni/FF/util.cpp.o
-
-.PHONY : home/chris/uni/FF/util.o
-
-# target to build an object file
-home/chris/uni/FF/util.cpp.o:
-	$(MAKE) -f CMakeFiles/test_FF.dir/build.make CMakeFiles/test_FF.dir/home/chris/uni/FF/util.cpp.o
-.PHONY : home/chris/uni/FF/util.cpp.o
-
-home/chris/uni/FF/util.i: home/chris/uni/FF/util.cpp.i
-
-.PHONY : home/chris/uni/FF/util.i
-
-# target to preprocess a source file
-home/chris/uni/FF/util.cpp.i:
-	$(MAKE) -f CMakeFiles/test_FF.dir/build.make CMakeFiles/test_FF.dir/home/chris/uni/FF/util.cpp.i
-.PHONY : home/chris/uni/FF/util.cpp.i
-
-home/chris/uni/FF/util.s: home/chris/uni/FF/util.cpp.s
-
-.PHONY : home/chris/uni/FF/util.s
-
-# target to generate assembly for a file
-home/chris/uni/FF/util.cpp.s:
-	$(MAKE) -f CMakeFiles/test_FF.dir/build.make CMakeFiles/test_FF.dir/home/chris/uni/FF/util.cpp.s
-.PHONY : home/chris/uni/FF/util.cpp.s
-
 run_all_tests.o: run_all_tests.cpp.o
 
 .PHONY : run_all_tests.o
@@ -240,12 +186,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test_FF"
 	@echo "... edit_cache"
-	@echo "... home/chris/uni/FF/FF.o"
-	@echo "... home/chris/uni/FF/FF.i"
-	@echo "... home/chris/uni/FF/FF.s"
-	@echo "... home/chris/uni/FF/util.o"
-	@echo "... home/chris/uni/FF/util.i"
-	@echo "... home/chris/uni/FF/util.s"
 	@echo "... run_all_tests.o"
 	@echo "... run_all_tests.i"
 	@echo "... run_all_tests.s"

@@ -13,6 +13,8 @@
 //use complex numbers
 typedef std::complex<double> dcomp;
 
+constexpr int FF::char_table[];
+
 FF::FF(std::string file_name)
 {
 
@@ -220,7 +222,7 @@ void FF::set_FFarray()
     assert(bond_vectors[0].size() == 2 + num_reps);
 
     //vector to hold complex intermediate values
-    std::vector<dcomp> FF_array_comp(Nl * Nx * Ny, std::complex(0.0, 0.0));
+    std::vector<std::complex<double>> FF_array_comp(Nl * Nx * Ny, std::complex<double>(0.0, 0.0));
     FF_array = std::vector<double>(Nl * Nx * Ny, {});
 
     double norm {};
@@ -245,8 +247,8 @@ void FF::set_FFarray()
 
                     FF_array_comp[l * Nx * Ny + kx * Ny + ky]
                         += charac
-                        * exp(std::complex(0.0, x * px))
-                        * exp(std::complex(0.0, y * py));
+                        * exp(std::complex<double>(0.0, x * px))
+                        * exp(std::complex<double>(0.0, y * py));
                 }
             }
         }

@@ -22,7 +22,6 @@ private:
     //already defined at compiletime
     //according to above arguments some entries might be repeated
     //static constexpr int char_table[sym_ops * num_reps]{
-    //constexpr and inline actually redundant
     static constexpr int char_table[sym_ops * num_reps]{
         1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, -1, -1, -1, -1,

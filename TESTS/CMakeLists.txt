@@ -15,8 +15,8 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(project_sources
 		run_all_tests.cpp
 		test_FF.cpp
-		../util.cpp
-		../FF.cpp
+#		../util.cpp
+#		../FF.cpp
         )
 
 #include gtest
@@ -42,4 +42,4 @@ target_link_libraries(${PROJECT_NAME} "/home/chris/gtest/build/lib/libgtest_main
 #link to pthreads
 target_link_libraries(${PROJECT_NAME} "pthread")
 #link to formfactors library
-#target_link_libraries(${PROJECT_NAME} "/home/chris/uni/FF/libFF.a")
+target_link_libraries(${PROJECT_NAME} "/home/chris/uni/FF/libFF.a")

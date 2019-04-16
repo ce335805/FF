@@ -1,19 +1,19 @@
 #makefile to build formfactors library
 CC = icpc
-CPPFLAGS = -Ofast -Wall -Wextra -pedantic
+CPPFLAGS =
 
 OUTFILE = libFF.a
 #.PHONY all
 all: $(OUTFILE)
 
-FF.o: FF.h util.h globals.h
+FF.o: FF.cpp FF.h util.cpp util.h globals.h
 	$(CC) $(CPPFLAGS) -c $< -o $@  
 
-util.o: util.h globals.h
+util.o: util.cpp util.h globals.h
 	$(CC) $(CPPFLAGS) -c $< -o $@  
 
 $(OUTFILE): FF.o util.o 
-	ar ru $@ $^
-	ranlib $@
+	ar r $@ $^
+#	ranlib $@
 
 
