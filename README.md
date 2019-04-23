@@ -23,7 +23,7 @@ For this it is important to provide the booleans in the correct order - the numb
 ### Nubering of basis functions:
 To Do
 
-## Usable Output
+##Usable Output
 The constructor automatically determines the number of Formfactors that are used.
 The number can be obtained by calling 'get_Nl()'\\
 The basis functions are stored in a 'std::vector<double>'.
