@@ -11,12 +11,14 @@
 
 //symmtry operations that returns a vector with two entries holding the changed coordinates
 template <typename T>
-void constexpr inline sym_sqr(const int s, T& x_coord, T& y_coord) noexcept
+void constexpr inline sym_sqr(const int s, T& x_coord, T& y_coord, const int Nx) noexcept
 {
     //note:: std_swap is noexcept
 
     //check that the passed value is a number somehow - thus function can be noexcept
     assert(std::is_arithmetic<T>::value);
+
+		const int Ny = Nx;
 
     switch (s) {
     //E
@@ -65,13 +67,15 @@ void constexpr inline sym_sqr(const int s, T& x_coord, T& y_coord) noexcept
 //symmetry operation leaving passed arguments intact
 //acts on first two entries of vector only
 template <typename T>
-std::vector<T> constexpr inline sym_sqr(const int s, const std::vector<T> v_inital) noexcept
+std::vector<T> constexpr inline sym_sqr(const int s, const std::vector<T> v_inital, const int Nx) noexcept
 {
     //note:: std_swap is noexcept
 
     //check that the passed value is a number somehow + vector has entries
     assert(std::is_arithmetic<T>::value);
     assert(v_inital.size() > 1);
+
+		const int Ny = Nx;
 
     T x_coord_new{ v_inital[0] }, y_coord_new{ v_inital[1] };
 

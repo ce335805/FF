@@ -15,7 +15,7 @@ typedef std::complex<double> dcomp;
 
 constexpr int FF::char_table[];
 
-FF::FF(std::string file_name)
+FF::FF(std::string file_name, const int Nx_in) : Nx{Nx_in}
 {
 
     std::cout
@@ -108,7 +108,7 @@ void FF::init_bond_vectors()
     };
 
     //lambda to check if a vector with a site and characters will yield a FF equal to zero
-    auto const check_zero = [](const std::vector<int>& v) -> bool {
+    auto const check_zero = [this](const std::vector<int>& v) -> bool {
         //#characers = #sym_ops + dimensions (=2)
         assert(v.size() == sym_ops + 2);
         std::vector<int> compare(sym_ops, 0);
@@ -122,8 +122,8 @@ void FF::init_bond_vectors()
             for (auto second = 0ul; second < sym_ops; ++second) {
 
                 //if two bonds match add their characters
-                if (sym_sqr(first, v)[0] == sym_sqr(second, v)[0]
-                    && sym_sqr(first, v)[1] == sym_sqr(second, v)[1]
+                if (sym_sqr(first, v, Nx)[0] == sym_sqr(second, v, Nx)[0]
+                    && sym_sqr(first, v, Nx)[1] == sym_sqr(second, v, Nx)[1]
                     && first != second)
                     compare[first] += v[second + 2];
             }
@@ -133,7 +133,7 @@ void FF::init_bond_vectors()
     };
 
     //lambda to check if two vectors are linear dependent - with a factor 1 or -1
-    auto const lin_dep = [](const std::vector<int>& v1, const std::vector<int>& v2) -> bool {
+    auto const lin_dep = [this](const std::vector<int>& v1, const std::vector<int>& v2) -> bool {
         assert(v1.size() == v2.size());
         assert(v1.size() > 1);
         assert(v2.size() > 1);
@@ -174,7 +174,7 @@ void FF::init_bond_vectors()
                 else
                     sym = 5;
                 std::vector<int> temp_bonds { bond_list[2 * bonds], bond_list[2 * bonds + 1] };
-                temp_bonds = sym_sqr(sym, temp_bonds);
+                temp_bonds = sym_sqr(sym, temp_bonds, Nx);
                 bond_vectors[bonds * num_reps + representation][0] = temp_bonds[0];
 
                 bond_vectors[bonds * num_reps + representation][1] = temp_bonds[1];
@@ -238,7 +238,7 @@ void FF::set_FFarray()
                     auto charac = static_cast<double>(bond_vectors[l][rep + 2]);
 
                     //compute symmetry operation of (x,y)
-                    std::vector<int> xy = sym_sqr(rep, bond_vectors[l]);
+                    std::vector<int> xy = sym_sqr(rep, bond_vectors[l], Nx);
 
                     auto x = static_cast<double>(xy[0]);
                     auto y = static_cast<double>(xy[1]);

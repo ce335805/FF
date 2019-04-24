@@ -10,6 +10,11 @@ typedef std::complex<double> dcomp;
 
 class FF {
 private:
+		const int Nx;
+		const int Ny = Nx;
+		const int N = Nx * Ny;
+		const int NxIBZ { (Nx / 2 + 1) * (Nx / 2 + 2) };
+
     //number of symmetry operations
     static constexpr int sym_ops = 8;
 
@@ -76,7 +81,7 @@ public:
     }
 
     //constructor that reads to be kept formfactors from file
-    FF(std::string file_name);
+    FF(std::string file_name, const int Nx_in);
 
     //delete copy constructor and assignment operator since one only needs one FF object at any time
     FF(const FF&) = delete;

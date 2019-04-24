@@ -12,9 +12,12 @@ namespace {
 TEST(FFTest, orthogonality)
 {
 
+    const int Nx = 10;
+    const int Ny = Nx;
+
     std::string file_name = "picklist_10.init";
     //new FF object for checking
-    FF ff_check(file_name);
+    FF ff_check(file_name, Nx);
 
     //some very short sanity checks
     EXPECT_GT(ff_check.get_NL(), 0) << "Number of formfactors is zero";

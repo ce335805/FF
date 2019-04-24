@@ -4,10 +4,10 @@
 
 #include <stddef.h>
 
-constexpr int N { 100 };
-constexpr int Nx { 10 };
-constexpr int Ny { 10 };
-constexpr int NxIBZ { (Nx / 2 + 1) * (Nx / 2 + 2) };
+//constexpr int N { 100 };
+//constexpr int Nx { 10 };
+//constexpr int Ny { 10 };
+//constexpr int NxIBZ { (Nx / 2 + 1) * (Nx / 2 + 2) };
 //positive frequencies
 constexpr int Nw { 16 };
 
