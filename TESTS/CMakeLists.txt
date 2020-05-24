@@ -15,7 +15,6 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(project_sources
 		run_all_tests.cpp
 		test_FF.cpp
-#		../util.cpp
 #		../FF.cpp
         )
 
